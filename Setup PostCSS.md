@@ -33,7 +33,7 @@ module.exports = {
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postcss:watch": "postcss src/style.css --dir css --watch"
+    "postcss:watch": "postcss src/**/[!_]*.scss --dir css --watch --ext=css"
   },
   "keywords": [],
   "author": "",
@@ -43,6 +43,7 @@ module.exports = {
     "cssnano": "^5.1.5",
     "postcss": "^8.4.12",
     "postcss-advanced-variables": "^3.0.1",
+    "postcss-autoreset": "^3.0.4",
     "postcss-cli": "^9.1.0",
     "postcss-import": "^14.1.0",
     "postcss-nested": "^5.0.6",
