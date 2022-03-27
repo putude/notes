@@ -1,10 +1,16 @@
 # Cara Setup PostCSS
 
 **1. Init NPM**
-`npm init -y`
+
+```cmd
+npm init -y
+```
 
 **2. Download PostCSS**
-`npm i -D postcss postcss-cli postcss-advanced-variables postcss-nested postcss-preset-env cssnano autoprefixer`
+
+```cmd
+npm i -D postcss postcss-cli postcss-scss postcss-advanced-variables postcss-nested postcss-preset-env cssnano autoprefixer
+```
 
 **3. Buat File postcss.config.js**
 isinya sbb:
@@ -49,11 +55,14 @@ module.exports = {
     "postcss-scss": "^4.0.3"
   }
 }
-
 ```
 
 pada bagian script
 
-`"scripts": {
-    "postcss:watch": "postcss src/style.css --dir css --watch"
-  },`
+`"scripts": { "postcss:watch": "postcss src/style.css --dir css --watch" },`
+
+**5. Buat CMD  postcss-watch.cmd**
+
+```cmd
+postcss src/style.css --dir css --watch
+```
