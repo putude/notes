@@ -1,16 +1,10 @@
-# Cara Setup PostCSS
+# Setup PostCSS untuk SCSS
 
 **1. Init NPM**
-
-```cmd
-npm init -y
-```
+`npm init -y`
 
 **2. Download PostCSS**
-
-```cmd
-npm i -D postcss postcss-cli postcss-scss postcss-advanced-variables postcss-nested postcss-preset-env cssnano autoprefixer
-```
+`npm i -D postcss postcss-cli postcss-advanced-variables postcss-nested postcss-preset-env postcss-autoreset cssnano autoprefixer`
 
 **3. Buat File postcss.config.js**
 isinya sbb:
@@ -22,9 +16,10 @@ module.exports = {
     require('postcss-advanced-variables')(),
     require('postcss-nested'),
     require('postcss-preset-env')({stage: 1}),
+    require('postcss-autoreset')(),
+    require('autoprefixer'),
     // require('postcss-import'),
     // require('cssnano'),
-  
   ]
 }
 ```
@@ -55,14 +50,23 @@ module.exports = {
     "postcss-scss": "^4.0.3"
   }
 }
+
 ```
 
-pada bagian script
+contoh script mengawasi perubahan src/style.css
 
-`"scripts": { "postcss:watch": "postcss src/style.css --dir css --watch" },`
+```
+"postcss:watch": "postcss src/style.css --dir css --watch"
+```
 
-**5. Buat CMD  postcss-watch.cmd**
+contoh script mengawasi semua file .scss dicompile css/*.css
 
-```cmd
-postcss src/style.css --dir css --watch
+```
+"postcss:watch": "postcss src/**/*.scss --dir css --watch --ext=css"
+```
+
+contoh script mengawasi semua file .scss, kecuali file dengan underscore (_*.scss)
+
+```
+"postcss:watch": "postcss src/**/[!_]*.scss --dir css --watch --ext=css"
 ```
